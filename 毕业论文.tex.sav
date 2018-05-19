@@ -1,0 +1,951 @@
+\documentclass[openany,oneside]{ctexbook}
+\usepackage{amsfonts}  %oneside为单面输出
+
+%============================ 引用的宏包 ==================================%
+\usepackage{booktabs}  %可以使用命令\specialrule改变表中线的粗细
+\usepackage{CJK,CJKnumb}  %调用中日韩字库包
+\usepackage{graphicx}  %插入图需要
+\usepackage{bm}         % 处理数学公式中的黑斜体的宏包
+\usepackage{amsmath}    % AMSLaTeX宏包 用来排出更加漂亮的公式
+\usepackage{amssymb}    % AMSLaTeX宏包 用来排出更加漂亮的公式
+\usepackage{color}   %控制颜色的
+\usepackage{a0size}     %自由定义字号,在后面“字号设置”中可设置到107pt 为止的大字体
+\usepackage{titletoc}  %设计目录的格式
+\usepackage{titlesec}  %设计标题的格式
+\usepackage{cases}  %这个包有时会起副作用, 尽量避免使用
+\usepackage{fancyhdr}  %可用来灵活设置页眉和页脚
+\usepackage{cite}%产生如(文[2,4-8])的效果
+\usepackage{multirow}
+%\usepackage{amsthm}
+\usepackage{CJK}
+\usepackage{epstopdf}
+
+\usepackage{float,graphicx}
+\usepackage[font=normalsize,labelfont=bf,textfont=bf]{caption}  %图标的标题字体和自号
+%\usepackage[font=normalsize,labelfont=normalsize,textfont=normalsize]{caption}  % 图标的标题字体和自号
+\DeclareCaptionLabelSeparator{twospace}{\ ~}  %将图表标题中的冒号改成空格
+\captionsetup{labelsep=twospace}
+
+
+\textwidth 159mm %设置版面宽度
+\textheight 220mm %设置版面高度
+\topmargin -5mm %设置页面顶端空白的高度
+\oddsidemargin 5mm %设置奇数页的边距
+\evensidemargin 5mm  %设置偶数页的边距, 单面时不起作用
+\renewcommand\baselinestretch{1.5} %将文本的行间距设为基础行间距的1.5 倍
+\renewcommand\arraystretch{1} %将数组中的行间距设为基础行间距的2 倍
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}  % 将引用的参考文献标号显示为上标
+\setlength{\parskip}{3pt plus1pt minus1pt}  % 段落之间的竖直距离
+
+
+
+
+\begin{document}
+\begin{CJK*}{GBK}{song}  %以下设为宋体
+
+%===================== 重定义字体、字号命令 =============================%
+% 注意win2000,没有 simsun,　最好到网上找一个. 一些字体是office2000 带的
+\newcommand{\song}{\CJKfamily{song}}    % 宋体   (Windows自带simsun.ttf)
+\newcommand{\fs}{\CJKfamily{fs}}        % 仿宋体 (Windows自带simfs.ttf)
+\newcommand{\kai}{\CJKfamily{kai}}      % 楷体   (Windows自带simkai.ttf)
+\newcommand{\hei}{\CJKfamily{hei}}      % 黑体   (Windows自带simhei.ttf)
+\newcommand{\li}{\CJKfamily{li}}        % 隶书   (Windows自带simli.ttf)
+\newcommand{\you}{\CJKfamily{you}}      % 幼圆   (Windows自带simyou.ttf)
+\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}     % 字号设置
+\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont} % 字号设置
+\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}      % 字号设置
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}      % 字号设置
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}  % 字号设置
+\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont}  % 字号设置
+\newcommand{\xiaosanhao}{\fontsize{14.75pt}{\baselineskip}\selectfont}  % 字号设置
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}      % 字号设置
+%\newcommand{\xiaosihao}{\fontsize{12pt}{20pt}\selectfont}  % 字号设置
+\newcommand{\xiaosihao}{\fontsize{12pt}{14pt}\selectfont}  % 字号设置
+\newcommand{\wuhao}{\fontsize{10.5pt}{12.6pt}\selectfont}    % 字号设置
+\newcommand{\xiaowuhao}{\fontsize{9pt}{11pt}{\baselineskip}\selectfont}   % 字号设置
+\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}  % 字号设置
+\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}    % 字号设置
+
+\CJKcaption{GB_aloft14q}
+
+
+
+%\theoremstyle{plain}
+%\newtheorem{theorem}{定理}[section]  %显示定理2.4.1  (2.4节的第1个定理)
+\newtheorem{theorem}{定理}[chapter]  %显示定理2.1.  (第2章的第1个定理)
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{remark}{注}[chapter]
+\newtheorem{example}{例}[chapter]
+\newtheorem{corollary}{推论}[chapter]
+\newtheorem{proposition}{命题}[chapter]
+\newtheorem{lemma}{引理}[chapter]
+\newtheorem{assumption}{假设}[chapter]
+
+\def\proof{\indent{\hei 证明\ \ } \ignorespaces}
+\def\endproof{\vbox{\hrule height0.6pt\hbox{\vrule height1.3ex width0.6pt\hskip0.8ex\vrule width0.6pt}
+               \hrule height0.6pt}\vskip 3mm}
+
+\catcode`@=11
+
+
+% Change definition of \thebibliography environment to use smaller font.
+\renewenvironment{thebibliography}[1]
+     {\def\chaptername{}\chapter{\bibname}
+     \thispagestyle{headings}  %使参考文献列表的起始页显示页眉                            !!!
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \small%                                               !!!
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%开始页眉和页脚定义%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\ps@headings{%
+\def\@evenfoot{\ \hfill \centering{\small\wuhao\ \thepage\ \hfill \ }}
+\def\@oddfoot{\ \hfill \centering{\small\wuhao \ \thepage\ \hfill \ }}
+\def\@evenhead{\vbox{\centering{\small\kai \wuhao  求实对称阵特征值的数值算法}\\[2pt]
+%\rule{\textwidth}{1mm}
+%\\[2pt]
+\rule{\textwidth}{.5pt}}}
+\def\@oddhead{\vbox{\centering{\small\wuhao\kai\protect  求实对称阵特征值的数值算法}\\[2pt]
+%\rule{\textwidth}{1mm}\\[2pt]
+\rule{\textwidth}{.5pt} }} } \ps@headings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%结束页眉和页脚定义%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%开始章的定义%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define chapter
+\renewcommand\chaptername{第\thechapter章}
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+                           %\pagestyle{empty}%                       !!!
+                       \if@mainmatter
+                           \pagestyle{headings}%                       !!!
+                           \refstepcounter{chapter}%
+                          \protected@xdef\@currentlabel{\chaptername}%  !!!
+                          \typeout{\hei\erhao \@chapapp \space \thechapter.}%
+                          \addcontentsline{toc}{chapter}{\protect\numberline
+                          {\hei\xiaosihao\chaptername} {\hei\xiaosihao #1}}%  !!!
+                       \else
+                          \addcontentsline{toc}{chapter}{\hei\xiaosihao #1}%
+                       \fi
+                    \else
+                       \addcontentsline{toc}{chapter}{\xiaosihao #1}%
+                    \fi
+                    \chaptermark{#1}%
+                    \addtocontents{lof}{\protect\addvspace{10\p@}}%
+                    \addtocontents{lot}{\protect\addvspace{10\p@}}%
+                    \if@twocolumn
+                       \@topnewpage[\@makechapterhead{#2}]%
+                    \else
+                       \@makechapterhead{#2}%
+                       \@afterheading
+                    \fi
+                    }
+\def\@chapapp{Chapter}%                   !!!
+\def\chapterformat{\xiaoerhao\bfseries\centering}%      |||
+\def\@makechapterhead#1{%
+
+                \if@mainmatter
+                          \renewcommand\leftmark{\wuhao \chaptername\ \ \ #1}
+                       \else
+                          \renewcommand\leftmark{\wuhao #1}%
+                       \fi
+                         \vspace*{-\headsep}\vspace*{-\headheight}\vspace*{15\p@}%      !!!
+                         {\chapterformat%                       !!!
+                         \ifnum \c@secnumdepth >\m@ne%                                !!!
+                             \if@mainmatter%                                            !!!
+                                \chaptername \quad #1 \par\nobreak%      !!!
+                             \else%                                                     !!!
+                                #1 \par\nobreak%                         !!!
+                             \fi%                                                       !!!
+                         \fi%                                                         !!!
+                         \vskip 15\p@%                                                !!!
+                         }
+                        }
+\def\@makeschapterhead#1{%
+                            \vspace*{-\headsep}\vspace*{-\headheight}\vspace*{15\p@}%   !!!
+                            {\chapterformat%                        !!!
+                             \interlinepenalty\@M%                                     !!!
+                             #1\par\nobreak%                                           !!!
+                             \vskip 15\p@%                                             !!!
+                            }
+                         }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%结束章的定义%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\renewcommand \thetable
+     {\ifnum \c@chapter>\z@ \thechapter -\fi \@arabic\c@table}  %定义表的编号形式
+
+\renewcommand \thefigure
+     {\ifnum \c@chapter>\z@ \thechapter -\fi \@arabic\c@figure}  % 定义图的编号形式
+
+
+\catcode`@=12
+
+
+\titleformat{\chapter}{\sffamily\centering\hei\xiaoerhao }{\chaptername}{.8em}{}
+\titlespacing{\chapter}{0pt}{*1}{*1}  %定义一级标题的格式
+   \titleformat{\section}{\sffamily\CJKfamily{hei}\xiaosanhao }{\hspace*{0.8cm}\thesection }{.8em}{} %定义二级标题的格式
+\titleformat{\subsection}{ \sffamily\CJKfamily{hei}\sihao }{ \hspace*{0.8cm}\thesubsection }{.8em}{} %定义三级标题的格式
+\titleformat{\subsubsection}{ \sffamily\CJKfamily{hei}\large }{ \hspace*{0.8cm}\thesubsubsection }{.8em}{}  %定义四级标题的格式
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%封面%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{-1.6cm}
+
+\begin{center}
+\begin{figure}[!h]
+  % Requires \usepackage{graphicx}
+\hspace*{-7mm}\includegraphics[width=\textwidth]{cover.eps}
+%\caption{dblfgb}
+  \end{figure}
+
+\vspace*{3mm}\hspace*{-12mm}{\hei\yihao本\hspace{1.8mm}科\hspace{1.8mm}学\hspace{1.8mm}生\hspace{1.8mm}学\hspace{1.8mm} 年\hspace{1.8mm}论\hspace{1.8mm} 文}
+
+\end{center}
+
+\vspace{2mm}
+
+{\xiaosanhao\hei
+$$
+\begin{array}{l}
+\hbox{\sanhao 论\hspace{.8mm}文\hspace{.8mm}题\hspace{.8mm}目：}\hspace{3.6mm}$\underline{\makebox[10cm][l]{\sanhao  求实对称阵特征值的数值算法}}$\\[5.5mm]
+\hbox{学\hspace{10.5mm}院：}\hspace{8mm}$\underline{\makebox[10cm][l]{数学科学学院}}$\\[5.5mm]
+\hbox{年\hspace{10.5mm}级：}\hspace{8mm}$\underline{\makebox[10cm][l]{2014}}$\\[5.5mm]
+\hbox{专\hspace{10.5mm}业：}\hspace{8mm}$\underline{\makebox[10cm][l]{信息与计算科学}}$\\[5.5mm]
+\hbox{姓\hspace{10.5mm}名：}\hspace{8mm}$\underline{\makebox[10cm][l]{刘宇轩}}$\\[5.5mm]
+\hbox{学\hspace{10.5mm}号：}\hspace{8mm}$\underline{\makebox[10cm][l]{20142534}}$\\[5.5mm]
+\hbox{指导教师：}\hspace{8mm}$\underline{\makebox[10cm][l]{李媛}}$
+\end{array}
+$$
+}
+
+\vspace{24mm}
+
+\begin{center}
+{\hei\sihao 2018\hspace{1.8mm}年\hspace{1.8mm}03\hspace{1.8mm}月\hspace{1.8mm}05\hspace{1.8mm}日}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\pagestyle{empty} %从现在开始页眉为空
+
+
+\frontmatter
+\chapter{摘\ \ 要}
+\renewcommand{\thepage}{\Roman{page}} %从现在开始页号为大写罗马体
+
+\xiaosihao\song
+
+本文研究求解矩阵特征值问题的数值算法, 并且对数值算法进行了Matlab程序实现, 文章主要包含四个部分:
+
+第一个部分介绍了求解特征值问题的发展历史和求解特征值问题的重要性以及求解特征值问题在实际生产中的应用
+
+第二部分介绍了求解实对称阵的特征值的QR方法, 并对QR方法进行了说明, 其中QR方法具有数值稳定性好,收敛速度快的优点, 通过Matlab编制利用QR方法求解特征值的程序, 并且结合了一个简单的数值算例对Matlab 程序进行了演示和校验.
+
+第三部分介绍了求解实对称阵的特征值乘幂法和反幂法, 其中乘幂法用于计算矩阵按模最大的特征值, 当零不是特征值时, 利用反幂法求按模最小的特征值, 而后利用Matlab编制乘幂法求解特征值的程序, 并且结合了一个简单的数值算例对Matlab程序进行了演示和校验.
+
+第四部分介绍了求解实对称阵的特征值的Jacobi方法, 通过一系列正交相似变换旋转变换将对称矩阵近似对角化,从而求得对称矩阵的全部特征值和特征向量, 利用Matlab编制乘幂法求解特征值的程序, 并且结合了一个简单的数值算例对Matlab 程序进行了演示和校验.
+
+
+\vspace{1.5cm}
+\begin{center}
+{\bf\xiaoerhao 关键词}
+\end{center}
+
+实对称矩阵; 特征值; QR算法; 乘幂法和反幂法; Jacobi方法;
+
+
+%英文摘要
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{\bf Abstract\vspace{0.5cm}} %保证目录中Abstract 的下面有个空行
+
+Solving the matrix eigenvalue problem is an important task in numerical algebra, which includes the calculation of the matrix eigenvalues and the eigenvectors, the eigenvalues are the roots of the characteristic polynomial of the matrix, and the roots of polynomial more than four order can not be calculated in limited operations, so the method to solve the eigenvalues of the matrix is essentially the iteration method for vector. The iteration method for vector is to obtain the eigenvalues and eigenvectors by using a series of matrix-vector products. The most effective method to solve the eigenvalues of matrix with small size is the QR method. In this paper, the QR method to solve the eigenvalues of real symmetric matrix is introduced.%【这里写英文摘要】
+
+\vspace{1.5cm}
+\begin{center}
+{\bf\xiaoerhao Key words}
+\end{center}
+
+Real symmetric matrix; Characteristic value; QR algorithm; Powers and powers; Jacobi method
+
+%下面的三行命令会让目录中的章也有.....连接
+\makeatletter
+\renewcommand*\l@chapter{\@dottedtocline{0}{0em}{1.5em}}
+\makeatother
+
+
+\tableofcontents   %自动生成目录表                                                  %                                            %
+
+
+
+
+\mainmatter  %开始正文部分
+
+\chapter{前言}\label{chapter1}  %章标题
+
+\thispagestyle{headings}  %显示每章开始页的页眉
+
+\renewcommand{\thepage}{\arabic{page}} %从正文开始页号显示为阿拉伯数字
+
+\setcounter{page}{1}  %从正文开始页号重新编号
+
+\xiaosihao\song
+\vspace{0.5cm}
+  本章研究了特征值问题在科学和工程上的应用, 并且阐述了矩阵计算的基本问题, 而后对矩阵特征值问题的算法进行了概述.
+
+\section{特征值问题在科学和工程上的应用}\label{chapter1-section1} % 节标题
+
+自从1946年第一台电子计算机问世, 经过70年的发展, 使得科学工程计算已经成为当今世界最重要的科学进步之一. 计算机物理学家、诺贝尔奖金获得者Wilson在二十世纪八十年代指出: 科学计算、理论研究和科学实验并列为当今世界科学活动的三种主要方式. 许多科学和工程领域如果没有科学计算不可能有一流的研究成果. 矩阵计算是科学与工程计算的核心, 大部分科学工程问题都要归结为一个矩阵计算问题, 下面我们将列举出矩阵计算的基本问题$\upcite{k1}$.
+
+(1)求解线性方程组的问题. 即给定$n$阶非奇异矩阵$A$和$n$维向量$b$, 求一个$n$维向量$x$, 使得
+\[
+\begin{split}
+&Ax=b.\\
+\end{split}
+\]
+
+(2)线性最小二乘问题,即给定的${m}\times{n}$矩阵$A$和$m$维的向量$b$, 求一个$n$维向量$x$, 使得
+\[
+\begin{split}
+&\|Ax-b\|_2={\rm min}\left\{\|Ax-b\|_2, y\in{R^n}\right\}.
+\end{split}
+\]
+
+(3)矩阵的特征值问题, 即给定一个$n$阶矩阵$A$, 求它的部分或者全部特征值和特征向量.
+
+
+\section{矩阵特征值问题算法概述}\label{chapter1-section2} % 节标题
+目前, 求解特征值问题的方法有两大类, 一类是变换方法; 另一类是向量迭代法. 变换方法是直接对原矩阵进行处理, 通过一系列变换, 使之变成一个易于求解特征值的形式, 如QR方法, 乘幂法和反幂法, Jacobi方法等. 变换方法由于要存储矩阵元素, 因而它只适合于求解阶数较低的矩阵, 它一般和向量迭代法合起来使用. 向量迭代法是通过一系列矩阵向量乘积而求得特征值和特征向量. 由于迭代法可采用压缩存储技术, 因而适合求解大型矩阵, 尤其是大型稀疏矩阵的特征值问题. 求解中、小规模的矩阵特征值问题最有效的方法是QR 方法. 还有一些如乘幂法和反幂法, Jacobi方法等方法都是能有效解决此问题的数值方法. 因此, 从某种意义上说, 中小规模的特征值问题的求解基本上得到完美解决.
+
+\chapter{求解特征值问题的QR算法}\label{chapter2}  % 章标题
+
+\thispagestyle{headings}  %显示每章起始页的页眉
+QR算法一般用于求解实矩阵的全部特征值问题, 由于它具有数值稳定性好, 收敛速度快的优点, 所以自1961年Francis提出这一方法后, 目前已经成为中、小矩阵全部特征值问题的最有效方法$\upcite{k2}$.
+
+\section{基本QR算法}\label{chapter2-section1} % 节标题
+
+我们从正交迭代出发, 导出QR算法. 取$U_{0}=I$,记$U_{k}$$R_{k}$为$Z_{k}$的QR分解, $U_{k}$是正交矩阵, $R_{k}$为上三角, 由正交迭代有
+\[
+\begin{split}
+&Z_{1}=AU_{0} = U_{1}R_{1},\\
+&Z_{2}=AU_{1} = U_{2}R_{2},\\
+&Z_{3}=AU_{2} = U_{3}R_{3},\\
+\vdots
+\end{split}
+\]
+
+定义$\boldsymbol{A}_1=\boldsymbol{A}$,$\boldsymbol{A}_k=\boldsymbol{U}_{k-1}^t$$\boldsymbol{A}$$\boldsymbol{U}_{k-1}$
+$(k=2,3,\cdots)$, 这里$\boldsymbol{A}_{k}$有Rayleigh商形式.
+\[
+\begin{split}
+&\boldsymbol{A}_{2}=\boldsymbol{U}_{1}^t\boldsymbol{A}\boldsymbol{U}_{1}=\boldsymbol{R}_{1}\boldsymbol{U}_{1},\\
+&\quad=\boldsymbol{U}_{1}^t(\boldsymbol{A}\boldsymbol{U}_{1})=\boldsymbol{U}_{1}^{T}\boldsymbol{U}_{2}\boldsymbol{R}_{2},\\
+&\boldsymbol{A}_{3}=\boldsymbol{U}_{2}^t\boldsymbol{A}\boldsymbol{U}_{2}=\boldsymbol{R}_{2}\boldsymbol{U}_{1}^{t}\boldsymbol{U}_{2},\\
+&\quad=\boldsymbol{U}_{1}^t(\boldsymbol{A}\boldsymbol{U}_{2})=\boldsymbol{U}_{2}^{T}\boldsymbol{U}_{3}\boldsymbol{R}_{3},\\
+\vdots
+\end{split}
+\]
+定义$\boldsymbol{k}_1=\boldsymbol{U}_{k-1}^{T}\boldsymbol{U}_{k}$$(k=1,2,\cdots)$, 则
+\[
+\begin{split}
+&\boldsymbol{A}_{1}=\boldsymbol{Q}_{1}\boldsymbol{R},\\
+&\boldsymbol{A}_{2}=\boldsymbol{R}_{1}\boldsymbol{Q}_{1}=\boldsymbol{Q}_{2}\boldsymbol{R}_{2},\\
+&\boldsymbol{A}_{3}=\boldsymbol{R}_{2}\boldsymbol{Q}_{2}=\boldsymbol{Q}_{3}\boldsymbol{R}_{3},\\
+\vdots
+\end{split}
+\]
+上述迭代过程可总结为著名的QR算法$\upcite{k3}$．
+
+取$\boldsymbol{A}_{1}=\boldsymbol{A}$, 进行如下迭代:
+\[
+\begin{split}
+&\boldsymbol{A}_{k}=\boldsymbol{Q}_{k}\boldsymbol{R}_{k},\\
+&\boldsymbol{A}_{k+1}=\boldsymbol{R}_{k}\boldsymbol{Q}_{k},\quad k=(1,2,\cdots)\\
+\vdots
+\end{split}
+\]
+由算法导出过程易知
+\[
+\begin{split}
+&\boldsymbol{Q}_{1}\boldsymbol{Q}_{2}\cdots\boldsymbol{Q}_{k}
+=\boldsymbol{U}_{1}(\boldsymbol{U}_{1}^{t}\boldsymbol{U}_{2})\cdots(\boldsymbol{U}_{k-1}^{t}\boldsymbol{U}_{k})=\boldsymbol{U}_{k},\\
+&\boldsymbol{A}_{k+1}=\boldsymbol{U}_{k}^{t}\boldsymbol{A}\boldsymbol{U}_{k},\\
+\end{split}
+\]
+
+\section{QR算法的数值算例}\label{chapter2-section2} % 节标题
+
+利用Matlab, 下面用一个算例来演示QR算法求矩阵的特征值.
+
+\begin{example}
+利用QR算法求矩阵A的特征值:
+\[
+    \boldsymbol{A}=
+    \left[
+      \begin{array}{rrc}
+      1 & -1 &2 \\
+      -2 & 0 & 5 \\
+      6 & -3 &6 \\
+      \end{array}
+    \right]
+\]
+\end{example}
+
+编制程序如下:
+
+$A=[1\quad-1\quad2;-2\quad0\quad5;6\quad-3\quad6];$$\%$输入矩阵
+
+$n=max(size(A));$$\%$测定A的阶数
+
+$e=0.00001;$$\%$要求误差
+
+$r=1;$$\%$当前误差,预设为1
+
+$k=1;$$\%$迭代次数
+
+$m=100;$$\%$最大迭代次数,预设为100
+
+$while\quad r>=e \& k<m$
+
+$\qquad \%$QR过程
+
+$\qquad [QR]=qr(A)$
+
+$\qquad A=R*Q$
+
+$\qquad amax=0$
+
+$\qquad for \quad i=2:n$
+
+$\qquad \qquad for \quad j=1:i-1$
+
+$\qquad \qquad \qquad if \quad max(abs(A(i,j)))>=amax$
+
+$\qquad \qquad \qquad \qquad amax=abs(A(i,j));$
+
+$\qquad \qquad \qquad end$
+
+$\qquad \qquad end$
+
+$\qquad end$
+
+$\qquad r=amax;\%$重算当前误差
+
+$\qquad k=k+1$
+
+$end$
+
+$if \quad k>=m$
+
+$\qquad$'不收敛'
+
+$else$
+
+$\qquad A$
+
+$\qquad \lambda = diag(A)$
+
+end \\
+
+运行结果:
+\[
+    \boldsymbol{A}=
+    \left(
+      \begin{array}{ccc}
+      5.0000 & -5.4554 &-5.1611 \\
+      0.0000 & -1.0000 &4.9600 \\
+      0.0000 & -0.0000 &3.0000 \\
+      \end{array}
+    \right)
+\]
+$\qquad\lambda=5.0000\quad-1.0000\quad3.0000$
+
+
+\chapter{求解特征值问题的乘幂法和反幂法}\label{chapter3}  %章标题
+
+\thispagestyle{headings} %显示每张起始页的页眉
+    乘幂法和反幂法是一种迭代法, 乘幂法用于计算矩阵按模最大的特征值(称为主特征值或者强特征值)以及对应的特征向量. 当零不是特征值时, 反幂法用来求按模最小的特征值以及对应的特征值向量, 幂法最大的有点是方法简单对大型稀疏矩阵较为合适.
+
+\section{乘幂法}\label{chapter3-section1}  %节标题
+
+    假设矩阵A有特征值$\lambda_i$$(i=1,2,\cdots,n)$ 并且$|\lambda_1|\geq$$|\lambda_2|\geq$$\cdots\geq$$|\lambda_n|$\\
+    任取一n维非零列向量$u_0$, 则$u_0$一定可以表示为$x_1,x_2,\cdots,x_n$的线性组合:
+\[
+    \begin{split}
+    &\boldsymbol{u}_{0}={a}_{1}{x}_{1}+{a}_{2}{x}_{2}+\cdots+{a}_{n}{x}_{n}
+    \end{split}
+\]
+    两边乘以$A^k$,并利用$Ax_i$=${\lambda}_{i}{x}_{i}$$(i=1,2,\cdots,n)$,并记${u}_{k}={A}^{k}{u}_{0}$,故有
+\[
+    \begin{split}
+    &\boldsymbol{u}_{k}=\boldsymbol{A}^{k}{u}_{0}={a}_{1}\lambda_1^k{x}_{1}+{a}_{2}\lambda_2^k{x}_{2}+\cdots+{a}_{n}\lambda_n^k{x}_{n}\\
+    \end{split}
+\]
+\[
+    \begin{split}
+    &\quad=\lambda_{1}^{k}[{a}_{1}{x}_{1}+{a}_{2}(\frac{\lambda_2}{\lambda_1})^{k}{x}_{2}+\cdots+{a}_{n}(\frac{\lambda_n}{\lambda_1})^{k}{x}_{n}]\\
+    \end{split}
+\]
+    设${a}_{1}\neq0$,由于$\frac{\lambda_i}{\lambda_1}<1$ $(i=2,3,\cdots,n)$,故对充分大的k,有
+\[
+    \begin{split}
+    &\frac{u_k}{\lambda_1^k}\approx{a}_{1}{x}_{1}
+    \end{split}
+\]
+\[
+    \begin{split}
+    &{u}_{k}\approx{\lambda_1^k}{a}_{1}{x}_{1}\approx{\lambda_1}{u}_{k-1}
+    \end{split}
+\]
+${u}_{k-1},{u}_{k}$几乎仅差一个常数因子${\lambda_1}$, 故
+\[
+    \begin{split}
+    &{\lambda_1}\approx\frac{(u_k)_i}{({u}_{k-1})_i} \quad (i=1,2,\cdots,n)
+    \end{split}
+\]
+由${u}_{k}={A}^{k}{u}_{0}$推得
+\[
+    \begin{split}
+    &{u}_{k}={A}{u}_{k-1} \quad (k=1,2,\cdots)
+    \end{split}
+\]
+
+综合以上讨论,求主特征值${\lambda}_{1}$及相应特征向量的步骤如下:
+
+(1)任给n维初始向量${u}_{0}\approx0$
+
+(2)按${u}_{k}={A}{u}_{k-1}(k=1,2,\cdots)$计算${u}_{k}$
+
+(3)如果k从某个数后$\frac{({u}_{k})_i}{({u}_{k-1})_i}\approx c$(常数)$(i=1,2,\cdots,n)$, 则取${\lambda}_{1}\approx c$, 而${u}_{k}$就是与${\lambda}_{1}$ 对应的一个近似特征向量$\upcite{k4}$.
+
+\section{反幂法}\label{chapter3-section2}  %节标题
+
+反幂法是求矩阵A按模最小的特征值及相应特征向量的迭代法.
+
+设矩阵A的特征值按模的大小排列为
+\[
+    \begin{split}
+    &|{\lambda_1}|\geq|{\lambda_2}|\geq\cdots\geq|{\lambda_n}|>0,
+    \end{split}
+\]
+相应的$n$个线性无关的特征向量是$v_1,v_2,\cdots v_n$,则${A}^{-1}$的特征值为
+\[
+    \begin{split}
+    &|\frac{1}{\lambda_1}|\leq|\frac{1}{\lambda_2}|\leq\cdots\leq|\frac{1}{\lambda_n}|,
+    \end{split}
+\]
+对应的特征向量仍然是$v_1,v_2,\cdots v_n$.计算矩阵$A$按模最小的特征值, 就是计算矩阵${A}^{-1}$按模最大的特征值.
+任何一个规范化非零初始向量${x}^{(0)}$,则由迭代格式有:
+\[
+  \left\{
+    \begin{split}
+      &x^{(k)}\approx A^{-1}y^{k-1}, \\
+      &m^{(k)}\approx max(x^{(k)}), \quad k=1,2,\cdots\\
+      &y^{(k)}\approx x^{(k)}/m^{k}, \\
+    \end{split}
+  \right.
+\]
+由于计算$A^{-1}$会很麻烦,所以实际应用时可将上式变为等价的式
+\[
+  \left\{
+    \begin{split}
+      &Ax^{(k)}\approx y^{k-1}, \\
+      &m^{(k)}\approx max(x^{(k)}), \quad k=1,2,\cdots\\
+      &y^{(k)}\approx x^{(k)}/m^{k}, \\
+    \end{split}
+  \right.
+\]
+相应的取
+\[
+  \left\{
+    \begin{split}
+      &\lambda_{n}=1/m^{(k)}, \\
+      &x_{n}=y^{(k)}, \\
+    \end{split}
+  \right.
+\]
+
+\section{乘幂法的数值算例}\label{chapter3-section3}  %节标题
+
+求矩阵A的最大特征值及特征向量
+
+\begin{example}
+\[
+    \boldsymbol{A}=
+    \left[
+      \begin{array}{rrc}
+      2 & -1 &0 \\
+      -1 & 2 & -1 \\
+      0 & -1 &2 \\
+      \end{array}
+    \right]
+\]
+\end{example}
+
+编制程序如下:
+
+$function \quad [m,u]=pow(A,ep,Nmax)$
+
+$if \quad nargin<3 \quad Nmax=500;$$end$
+
+$if \quad nargin<2 \quad ep=1e-5;$$end$
+
+$n=length(A);$
+
+$u=ones(n,1);$
+
+$k=0;$
+
+$m_1=0$
+
+$while \quad k<=Nmax$
+
+$\quad v=A*u;$
+
+$[vmax,i]=max(abs(v))$
+
+$\quad m=v(i);$
+
+$u=v/m;$
+
+$if \quad abs(m-m_1)<ep$
+
+$\qquad break;$
+
+$\quad end$
+
+$\quad m_1=m;$$k=k+1$
+
+$end$
+
+运行结果:最大特征值$m=3.4142$ \\
+
+特征向量:
+\[
+    \boldsymbol{A}=
+    \left(
+      \begin{array}{c}
+      -0.7071  \\
+      1.0000  \\
+      -0.7071  \\
+      \end{array}
+    \right)
+\]
+
+\chapter{求解特征值问题的Jacobi方法}\label{chapter3}  %章标题
+
+\thispagestyle{headings}  %显示每章起始页的页眉
+雅克比方法的特征是利用一系列特殊的相似变换将原始矩阵A化为易于求解的特殊形式的矩阵,然后再对这类特殊形式的矩阵求解特征值问题.
+
+\section{Jacobi方法}\label{chapter3-section2}  %节标题
+
+Jacobi旋转法是求实对称矩阵全部特征值及对应特征向量的方法.
+
+设$\boldsymbol{A}$为n阶实对称矩阵,则存在正交矩阵$\boldsymbol{P}$,使
+\[
+    \begin{split}
+      &{p}^{T}{A}{P}={p}^{-1}{A}{P}=D=diag(\lambda_1,\lambda_2,\cdots,\lambda_n),
+    \end{split}
+\]
+其中$\lambda_1,\lambda_2,\cdots,\lambda_n$为$A$的$n$个特征值,正交矩阵$\boldsymbol{P}$的各列为矩阵$\boldsymbol{A}$相对应于$\lambda_1,\lambda_2,\cdots,\lambda_n$的特征向量.
+
+设$\boldsymbol{A}^{(0)}=\boldsymbol{A}$,由$\boldsymbol{A}^{(0)}$出发对其作Givens变换$\boldsymbol{G}_{0}(p,q)$,一般地,有
+\[
+    \begin{split}
+      &\boldsymbol{A}^{(k)}=\boldsymbol{G}_{k}^{T}\boldsymbol{A}^{(k-1)}\boldsymbol{G}_{k}
+    \end{split}
+\]
+其中
+\[
+\boldsymbol{G}_{k}(p,q)=       %开始数学环境
+\left(                 %左括号
+  \begin{split}
+    \quad1  &        &           &              &       &             &         &              &        &        &        & \\
+            & \ddots &           &              &       &             &         &              &        &        &        & \\
+            &        &   \quad1  &              &       &             &         &              &        &        &        & \\
+            &        &           &  cos\theta   &       &  \cdots     &         & sin\theta    &        &        &        & \\
+            &        &           &              & \quad1&             &         &              &        &        &        & \\
+            &        &           &  \vdots      &       &  \ddots     &         &    \vdots    &        &        &        & \\
+            &        &           &              &       &             & \quad1  &              &        &        &        & \\
+            &        &           &  -sin\theta  &       &   \cdots    &         &  cos\theta   &        &        &        & \\
+            &        &           &              &       &             &         &              &  \quad1&        &        & \\
+            &        &           &              &       &             &         &              &        & \ddots &        & \\
+            &        &           &              &       &             &         &              &        &        & \quad1 & \\
+  \end{split}
+\right),                %右括号
+\]
+为Gevens矩阵.
+
+为使$\boldsymbol{A}^{(k)}$趋向一解矩阵$(k\rightarrow \infty)$,可以这样确定$\boldsymbol{G}_{k}(p,q)$,对于$\forall k>0 $, p , q 由$\boldsymbol{A}^{(k-1)}$中对角线元素$a_{ij}^{(k-1)}$$(i\neq j)$按模最大者的角标决定,令$a_{pq}^{(k)}=0$来确定$\theta$,这种方法称为Jacobi方法$\upcite{k5}$.
+
+$\boldsymbol{A}^{(k)}$是实对称矩阵,$\boldsymbol{A}^{(k)}$与$\boldsymbol{A}^{(k-1)}$ 只有p,q两行(列)不同,它们之间的关系是
+\[
+  \left\{
+    \begin{split}
+      &a_{pi}^{(k)}= a_{ip}^{(k)}=a_{ip}^{(k-1)}cos\theta+a_{ip}^{(k-1)}sin\theta \quad (i\neq p,q) \\
+      &a_{qi}^{(k)}= a_{iq}^{(k)}=-a_{ip}^{(k-1)}sin\theta+a_{ip}^{(k-1)}cos\theta \quad (i\neq p,q) \\
+      &a_{pp}^{(k)}= a_{pp}^{(k-1)}cos^2\theta+2a_{pq}^{(k-1)}sin\theta cos\theta+a_{qq}^{(k-1)}sin^2\theta \quad  \\
+      &a_{qq}^{(k)}= a_{qq}^{(k-1)}sin^2\theta^2-2a_{pq}^{(k-1)}sin\theta cos\theta+a_{qq}^{(k-1)}cos^2\theta \quad  \\
+      &a_{pq}^{(k)}= a_{qp}^{(k)}=(a_{jj}^{(k-1)}-a_{pp}^{(k-1)})sin\theta cos\theta + a_{pq}^{(k-1)}(cos^2\theta-sin^2\theta)\quad  \\
+    \end{split}
+  \right.
+\]
+
+令$a_{pq}^{(k)}=a_{qp}^{(k)}=0$,解$\theta$满足的条件是:
+\[
+    \begin{split}
+      &tan2\theta = \frac{2a_{pq}^{(k-1)}}{a_{pp}^{(k-1)}-a_{qq}^{(k-1)}}  \\
+    \end{split}
+\]
+通常取
+\[
+    \begin{split}
+      &|\theta|\leq \frac{\pi}{4}  \\
+    \end{split}
+\]
+若$a_{pp}^{(k-1)}=a_{qq}^{(k-1)}$,则取
+\[
+\theta=
+  \left\{
+    \begin{split}
+      & -\pi/4 , a_{pq}^{(k-1)}<0,\\
+      & \quad \pi/4 , a_{pq}^{(k-1)}>0,\\
+    \end{split}
+  \right.
+\]
+实际应用中不需计算$\theta$,只需计算$sin\theta , cos\theta$ 令
+\[
+    \begin{split}
+      &y=|a_{pp}^{(k-1)}-a_{qq}^{(k-1)}| , x=sign(a_{pp}^{(k-1)}-a_{qq}^{(k-1)})2a_{pq}^{(k-1)}\\
+    \end{split}
+\]
+则
+\[
+    \begin{split}
+      &tan2\theta = \frac{x}{y},\\
+      &cos\theta = (\frac{1}{2}(1+\frac{y}{\sqrt{x^2+y^2}}))^{1/2},\\
+      &sin\theta = \frac{x}{2cos\theta \sqrt{x^2+y^2}}.\\
+    \end{split}
+\]
+
+\section{Jacobi方法的数值算例}\label{chapter3-section2}  %节标题
+
+利用Matlab,根据Jacobi方法求矩阵的全部特征值和特征向量
+\begin{example}
+求矩阵
+\[
+    \boldsymbol{A}=
+    \left[
+      \begin{array}{rrc}
+      2 & -1 &0 \\
+      -1 & 2 & -1 \\
+      0 & -1 &2 \\
+      \end{array}
+    \right]
+\]
+的全部特征值和特征向量
+\end{example}
+
+编制程序如下:
+
+$function [D,R]=Jacobieig(A,ep)$
+
+$\% $求对称矩阵的特征值的Jocabi法,A为矩阵,ep为精度(默认值为1e-5)
+
+$\% $D为对角线上的值(特征值),R为对应特征值的特征向量
+
+$if \quad nargin<2 \quad ep=1e-5;end;$
+
+$n=length(A);$
+
+$R=eye(n);$
+
+$while \quad 1$
+
+$Amax=0$
+
+$for \quad l=1:n-1$
+
+$\quad for \quad k=l+1:n$
+
+$ \qquad if \quad abs(A(l,k))>Amax$
+
+$ \qquad \quad Amax=abs(A(l,k));$
+
+$ \qquad \quad i=l;j=k$
+
+$ \qquad end;$
+
+$ \quad end;$
+
+$end;$
+
+$if \quad Amax<e \quad break;end;$
+
+$\%$计算三角函数
+
+$d=(A(i,i)-A(j,j))/2*(A(i,j));$
+
+$if \quad abs(d)<1e-10$
+
+$\quad t=1$
+
+$else$
+
+$\quad t=sign(d)/(abs(d)+sqrt(d^2+1));$
+
+$end;$
+
+$c=1/sqrt(t^2+1);s=c*t;$
+
+$\%$旋转计算
+
+$for \quad l=1:n$
+
+$\quad if \quad l==i$
+
+$\qquad \quad A_{ij}=A(i,j)*c^2+2*A(i,j)*s*c;$
+
+$\qquad \quad A_{jj}=A(i,i)*s^2+A(j,j)*c^2-2*A(i,j)*s*c;$
+
+$\qquad \quad A(i,j)=(A(i,j)-A(i,i))*s*c+A(i,j)*(c^2-s^2);$
+
+$\qquad \quad A(j,i)=A(i,j);A(i,i)=A_{ii};A(jj)=A_{jj};$
+
+$\quad elseif \quad l==j$
+
+$\qquad \quad A_{il}=A(i,l)*c+A(j,l)*s;$
+
+$\qquad \quad A_{jl}=-A(i,l)*s+A(j,l)*c;$
+
+$\qquad \quad A(i,l)=A_{il};A(l,i)=A_{il};$
+
+$\qquad \quad A(j,l)=A_{jl};A(l,j)=A_{jl};$
+
+$\quad end;$
+
+$\quad R_{li}=R(l,i)*c+R(l,j)*s;$
+
+$\quad R_{lj}=R(l,i)*s+R(l,j)*c;$
+
+$\quad R(l,i)=R_{li};R(l,j)=R_{lj};$
+
+$\quad end;$
+
+$end;$
+
+$D=diag(diag(A))$\\
+\\ \\
+
+在matlab中运行程序,执行结果为:
+
+\[
+    \boldsymbol{D}=
+    \left[
+      \begin{array}{rrc}
+      0.5858 & 0 &0 \\
+      0 & 3.4142 & 0 \\
+      0 & 0 &2.0000 \\
+      \end{array}
+    \right]
+\]
+
+\[
+    \boldsymbol{R}=
+    \left[
+      \begin{array}{rrc}
+      0.5000 & -0.5000 &-0.7071 \\
+      0.7071 & 0.7071  & 0 \\
+      0.5000 & -0.5000 &0.7071 \\
+      \end{array}
+    \right]
+\]
+
+\chapter{求解特征值问题的Householder方法}\label{chapter4}  %章标题
+
+\thispagestyle{headings}  %显示每章起始页的页眉
+Householder方法是计算实对称矩阵A的全部特征值及相应特征向量的方法. 计算过程是先用反射矩阵作正交相似变换约化一般实矩阵A为Hessenberg矩阵, 或用反射矩阵作正交相似变换约化实对称矩阵A为对称三角矩阵, 使求原矩阵特征值及相应特征向量问题转化为求Hessenberg矩阵或对称三角矩阵的特征值问题.
+
+\section{求解特征值问题的Householder方法}\label{chapter4-section1}  %章标题
+
+
+
+\section{Householder方法的数值算例}\label{chapter4-section2}  %章标题
+
+\pagestyle{headings}
+\backmatter
+\pagestyle{headings}
+
+\chapter{结论}\label{conclusion}
+
+\thispagestyle{headings}
+本文通过对特征值问题在科学和工程上的应用,阐述了特征值问题的重要性, 并且介绍了一般用于求解实矩阵的全部特征值问题几种常用方法, 有QR算法, 乘幂法和反幂法, Jcobi方法. 此外, 本文也通过使用Matlab软件对QR算法, 乘幂法和反幂法, Jacobi方法,编制程序对方法进行实现, 并且通过简单的矩阵进行了数值实现.
+
+对实对称矩阵特征值问题的研究是当前国内外的热点，其计算方法多种多样，本文所涉及的方法不过是一小部分，每中方法都有其优点和不足，没有对各种问题都适用的万能之法，只能具体问题具体分析，因此该领域的研究前景还是非常广阔的.
+\begin{thebibliography}{99}
+
+\bibitem{k1}
+向华.
+\newblock 数值计算及其工程应用[M].
+\newblock 清华大学出版社出版社.
+\newblock 2015: 90-93.
+
+\bibitem{k2}
+冯果忱, 黄明游.
+\newblock 数值分析(上册)[M].
+\newblock 高等教育出版社.
+\newblock 2007: 52-62.
+
+\bibitem{k3}
+王开荣，杨大地.
+\newblock 应用数值分析[M].
+\newblock 高等教育出版社.
+\newblock 2010(2): 240-241.
+
+\bibitem{k4}
+姚仰新，罗家洪，庄楚强.
+\newblock 高等工程数学[M].
+\newblock ,华南理工大学出版社.
+\newblock 2014: 203-205.
+
+\bibitem{k5}
+吕同富，康兆敏，方秀敏.
+\newblock 数值计算方法[M].
+\newblock 清华大学出版社.
+\newblock 2008: 113-115.
+
+\end{thebibliography}
+
+%\bibliographystyle{HLJUBac}   %黑龙江大学要求的参考文献格式文件HLJUBac.bst
+%\bibliography{XiaoJinMeiBib}   %Bibtex文件（参考文献库）
+
+\chapter{致谢}\label{thanks}
+
+\thispagestyle{headings}  %显示致谢起始页的页眉
+
+　我首先要感谢我的论文指导老师李媛。李媛老师对我论文的研究方向做出了指导性的意见和推荐，在论文撰写过程中及时对我遇到的困难和疑惑给予悉心指点，提出了许多有益的改善性意见，投入了超多的心血和精力。李媛老师对我的帮忙和关怀表示诚挚的谢意!同时，还要感谢黑龙江大学数学科学学院的授课老师们和所有同学们，大家在日常的数学问题学习中互相学习，互相帮忙，共同度过了一段完美难忘的时光。
+
+　　此外，还要感谢朋友以及同学们在论文编写中带给的大力支持和帮忙，给我带来极大的启发。也要感谢参考文献中的作者们，透过他们的研究文章，使我对研究课题有了很好的出发点。
+
+　　最后，谢谢论文评阅老师们的辛苦工作。衷心感谢我的家人、朋友，以及同学们，真是在他们的鼓励和支持下我才得以顺利完成此论文。
+
+
+\newpage  %保证最后一页显示页眉
+
+
+\end{CJK*}
+\end{document}

@@ -1,0 +1,22 @@
+\contentsline {chapter}{\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 摘\ \ 要}{I}
+\contentsline {chapter}{\bf Abstract\vspace {0.5cm}}{II}
+\contentsline {chapter}{\numberline {\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 第1章} {\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 前言}}{1}
+\contentsline {section}{\numberline {1.1}特征值问题在科学和工程上的应用}{1}
+\contentsline {section}{\numberline {1.2}矩阵特征值问题算法概述}{1}
+\contentsline {chapter}{\numberline {\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 第2章} {\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 求解特征值问题的QR算法}}{3}
+\contentsline {section}{\numberline {2.1}基本QR算法}{3}
+\contentsline {section}{\numberline {2.2}数值算例}{4}
+\contentsline {chapter}{\numberline {\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 第3章} {\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 求解特征值问题的乘幂法和反幂法}}{6}
+\contentsline {section}{\numberline {3.1}乘幂法}{6}
+\contentsline {section}{\numberline {3.2}反幂法}{7}
+\contentsline {section}{\numberline {3.3}数值算例}{7}
+\contentsline {chapter}{\numberline {\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 第4章} {\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 求解实对称阵特征值问题的Jacobi方法}}{9}
+\contentsline {section}{\numberline {4.1}Jacobi方法}{9}
+\contentsline {section}{\numberline {4.2}数值算例}{11}
+\contentsline {chapter}{\numberline {\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 第5章} {\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 求解实对称阵特征值问题的Givens-Householder方法}}{14}
+\contentsline {section}{\numberline {5.1}Givens-Householder方法}{14}
+\contentsline {section}{\numberline {5.2}数值算例}{16}
+\contentsline {chapter}{\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 结论}{18}
+\contentsline {chapter}{\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 参\ 考\ 文\ 献}{19}
+\contentsline {chapter}{\CJKfamily {hei}\fontsize {12pt}{14pt}\selectfont 致谢}{20}
+\contentsfinish 
